@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การแจ้งเตือน</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            box-sizing: border-box;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 30px;
+        }
+        .content {
+            padding: 20px;
+        }
+  
+ 
+        .notification-card1 {
+            background-color: #fff;
+            color: #222;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+  
+        .notification-card2 {
+            background-color: #222;
+            color: #fff;
+          
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+  
+        .notification-card3 {
+            background-color: #222;
+            color: #fff;
+           
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            margin-top: -20px;
+        }
+  
+        .footer-container {
+            text-align: center;
+            padding: 20px;
+            width: 89%;
+            background-color: #121212;
+            color: #fff;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        .footer-title {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .footer-input {
+            margin-top: 15px;
+        }
+
+        .footer-input input {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .footer-input button {
+            padding: 10px 20px;
+            background-color: #FF4A4A;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Kanit', sans-serif;
+            
+        }
+
+        .footer-contact {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .footer-contact h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links h3 {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin: 5px 0;
+            font-size: 12px;
+        }
+
+        .footer-payment {
+            margin-top: 20px;
+        }
+
+        .footer-payment img {
+            margin: 0 10px;
+            width: 50px;
+            pdding: 20px;
+        }
+  
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            text-align: center;
+        }
+  
+        .menu a {
+    -webkit-tap-highlight-color: transparent;
+}
+  
+        .menu a i {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+  
+     <div class="menu">
+        <a href="shopping_mall.html"><i class="las la-home fs-20 opacity-60"></i> Mall</a>
+        <a href="dashboard.html"><i class="las la-tachometer-alt fs-20 opacity-60"></i> ควบคุม</a>
+        <a href="shop.html"><i class="las la-shopping-bag la-2x text-white"></i>สินค้า</a>
+        <a href="Notification.html"><i class="las la-bell fs-20 opacity-60"></i> การแจ้งเตือน</a>
+        <a href="sidebar_menu.html" id="menuButton"><i class="las la-user"></i> ฉัน</a>
+    </div>
+  
+    <header>
+        <div>
+            <i class="fas fa-flag"></i>
+            <span>thailand</span>
+        </div>
+        <img src="logo.png" alt="Logo">
+        <div>
+            <span>Thai Baht ฿</span>
+            <i class="fas fa-search"></i>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="notification-card1">
+            <h2>การแจ้งเตือน</h2>
+            <p>ไม่พบการแจ้งเตือน</p>
+        </div>
+
+        <div class="footer-container">
+        <div class="footer-logo">
+    <img src="default-logo.png" alt="Logo" width="40" height="40">
+</div>
+        <div class="footer-title">ชื่อร้าน</div>
+        <div class="footer-input">
+            <input type="text" placeholder="ที่อยู่อีเมลของคุณ">
+            <button>ติดตาม</button>
+        </div>
+        <div class="footer-contact">
+            <h3>ข้อมูลติดต่อ</h3>
+            <p>ที่อยู่ :</p>
+            <p>อีเมล: </p>
+        </div>
+        <div class="footer-links">
+            <h3>บัญชีของฉัน</h3>
+            <ul>
+                <li>ออกจากระบบ</li>
+                <li>ประวัติการสั่งซื้อ</li>
+                <li>สิ่งที่อยากได้ของฉัน</li>
+                <li>เป็นพันธมิตรในเครือ</li>
+            </ul>
+        </div>
+        <div class="footer-payment">
+            <img src="visa.png" alt="Visa">
+            <img src="paypal.png" alt="Paypal">
+            <img src="mastercard.png" alt="Mastercard">
+            <img src="maestro.png" alt="Maestro">
+        </div>
+    </div>
+
+    <script>
+    // ดึงข้อมูลจาก Local Storage
+    const shopName = localStorage.getItem('shopName') || 'ชื่อร้าน';
+    const phoneNumber = localStorage.getItem('phoneNumber') || 'หมายเลขโทรศัพท์';
+    const shopAddress = localStorage.getItem('shopAddress') || 'ที่อยู่ร้าน';
+    const logoURL = localStorage.getItem('logoURL') || 'default-logo.png'; // โลโก้เริ่มต้น
+
+    // อัพเดตข้อมูลบนหน้า
+    document.querySelector('.footer-title').textContent = shopName;
+    document.querySelector('.footer-contact').innerHTML = `
+        <h3>ข้อมูลติดต่อ</h3>
+        <p>โทรศัพท์: ${phoneNumber}</p>
+        <p>ที่อยู่: ${shopAddress}</p>
+    `;
+    document.querySelector('.footer-logo img').src = logoURL;
+   </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <title>Manage Products</title>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 80px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .product-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-form input[type="text"],
+        .product-form input[type="number"],
+        .product-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .product-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .product-form button {
+            width: 80%;
+            margin-top: 10px;
+            margin-left: 30px;
+            padding: 8px;
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Kanit', sans-serif;
+        }
+        .product-list {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .product-item {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .product-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .product-item .details {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        .product-item button {
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 5px;
+            font-family: 'Kanit', sans-serif;
+ 
+        }
+        .edit-btn {
+            background-color: #3182CE;
+        }
+  
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            text-align: center;
+        }
+  
+        .menu a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+        .menu a i {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+  
+     <div class="menu">
+            <a href="shopping_mall.html">
+                <i class="las la-home fs-20 opacity-60"></i> Mall
+            </a>
+            <a href="dashboard.html">
+                <i class="las la-tachometer-alt fs-20 opacity-60"></i> ควบคุม
+            </a>
+            <a href="shop.html">
+                <i class="las la-shopping-bag la-2x text-white"></i> รถเข็น
+            </a>
+            <a href="Notification.html">
+                <i class="las la-bell fs-20 opacity-60"></i> การแจ้งเตือน
+            </a>
+            <a href="sidebar_menu.html">
+                <i class=" las la-user"></i> ฉัน
+            </a>
+        </div>
+  
+    <h2>จัดการผลิตภัณฑ์ใหม่</h2>
+    <div class="product-form">
+        <label for="product-name">ชื่อสินค้า</label>
+        <input type="text" id="product-name" placeholder="ชื่อสินค้า">
+
+        <label for="product-price">ราคา</label>
+        <input type="number" id="product-price" placeholder="ราคา">
+
+        <label for="product-rating">คะแนน</label>
+        <select id="product-rating">
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+
+        <label for="product-image">เลือกรูปภาพ</label>
+        <input type="file" id="product-image" accept="image/*">
+
+        <button onclick="addOrUpdateProduct()">เพิ่มหรืออัปเดตผลิตภัณฑ์</button>
+    </div>
+
+    <div class="product-list" id="product-list"></div>
+
+    <script>
+        let editIndex = -1;
+
+        function loadProducts() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+
+            products.forEach((product, index) => {
+                const productItem = document.createElement('div');
+                productItem.className = 'product-item';
+
+                const productImage = document.createElement('img');
+                productImage.src = product.image;
+
+                const details = document.createElement('div');
+                details.className = 'details';
+                details.innerHTML = `
+                    <strong>${product.name}</strong><br>
+                    ราคา: ฿${product.price}<br>
+                    คะแนน: ${'⭐'.repeat(product.rating)}
+                `;
+
+                const editButton = document.createElement('button');
+                editButton.className = 'edit-btn';
+                editButton.textContent = 'แก้ไข';
+                editButton.onclick = () => editProduct(index);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'ลบ';
+                deleteButton.onclick = () => deleteProduct(index);
+
+                productItem.appendChild(productImage);
+                productItem.appendChild(details);
+                productItem.appendChild(editButton);
+                productItem.appendChild(deleteButton);
+
+                productList.appendChild(productItem);
+            });
+        }
+
+        function addOrUpdateProduct() {
+            const name = document.getElementById('product-name').value;
+            const price = document.getElementById('product-price').value;
+            const rating = document.getElementById('product-rating').value;
+            const imageInput = document.getElementById('product-image');
+            const image = imageInput.files[0];
+
+            if (name && price && rating) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newProduct = {
+                        name,
+                        price,
+                        rating: parseInt(rating),
+                        image: image ? e.target.result : (editIndex >= 0 ? getCurrentImage(editIndex) : "")
+                    };
+
+                    const products = JSON.parse(localStorage.getItem('products')) || [];
+
+                    if (editIndex >= 0) {
+                        products[editIndex] = newProduct;
+                        editIndex = -1;
+                    } else {
+                        products.push(newProduct);
+                    }
+
+                    localStorage.setItem('products', JSON.stringify(products));
+
+                    loadProducts();
+                    clearForm();
+                };
+                
+                if (image) reader.readAsDataURL(image);
+                else reader.onload();
+            } else {
+                alert('กรุณากรอกข้อมูลให้ครบ');
+            }
+        }
+
+        function editProduct(index) {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const product = products[index];
+
+            document.getElementById('product-name').value = product.name;
+            document.getElementById('product-price').value = product.price;
+            document.getElementById('product-rating').value = product.rating;
+            document.getElementById('product-image').value = '';
+
+            editIndex = index;
+        }
+
+        function deleteProduct(index) {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            products.splice(index, 1);
+            localStorage.setItem('products', JSON.stringify(products));
+            loadProducts();
+        }
+
+        function getCurrentImage(index) {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            return products[index].image;
+        }
+
+        function clearForm() {
+            document.getElementById('product-name').value = '';
+            document.getElementById('product-price').value = '';
+            document.getElementById('product-rating').value = '1';
+            document.getElementById('product-image').value = '';
+        }
+
+        // Load products on page load
+        loadProducts();
+    </script>
+</body>
+</html>

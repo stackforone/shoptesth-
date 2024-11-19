@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krisshop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .header img {
+            height: 30px;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h1 {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 17px;
+        }
+        .footer {
+            background-color: #1e293b;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer img {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .email-input-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .email-input-container input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            width: 250px;
+        }
+        .email-input-container button {
+            padding: 10px;
+            border: none;
+            background-color: #e63946;
+            color: #fff;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        .footer-section {
+            margin-top: 30px;
+        }
+        .footer-section h3 {
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+        .footer-section p {
+            margin: 5px 0;
+            font-size: 12px;
+        }
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+        }
+  
+        .container {
+    margin-top: 600px; /* หรือเพิ่มค่า px เช่น 50px, 100px ตามต้องการ */
+}
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .menu a i {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="menu">
+        <a href="shopping_mall.html">
+            <i class="las la-home fs-20 opacity-60"></i> Mall
+        </a>
+        <a href="dashboard.html">
+            <i class="las la-tachometer-alt fs-20 opacity-60"></i> ควบคุม
+        </a>
+        <a href="shop.html">
+            <i class="las la-shopping-bag la-2x text-white"></i> สินค้า
+        </a>
+        <a href="Notification.html">
+            <i class="las la-bell fs-20 opacity-60"></i> การแจ้งเตือน
+        </a>
+        <a href="sidebar_menu.html">
+            <i class="las la-user"></i> ฉัน
+        </a>
+    </div>
+  
+    <div class="header">
+        <div>
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div>
+            <span>thailand</span> | <span>Thai Baht ฿</span>
+        </div>
+        <div>
+            <button></button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>ประวัติการชำระเงิน</h1>
+    </div>
+
+   
+   <div class="footer">
+        <img src="logo.png" alt="Logo">
+        <div>Krisshop</div>
+        <div class="email-input-container">
+            <input type="email" placeholder="ที่อยู่อีเมลของคุณ">
+            <button>ติดตาม</button>
+        </div>
+
+        <div class="footer-section">
+            <h3>ข้อมูลติดต่อ</h3>
+            <p>ที่อยู่: </p>
+            <p>อีเมล: emaill@gmail.com</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>บัญชีของฉัน</h3>
+            <p><a href="#">ออกจากระบบ</a></p>
+            <p><a href="#">ประวัติการสั่งซื้อ</a></p>
+            <p><a href="#">สิ่งที่อยากได้ของฉัน</a></p>
+            <p><a href="#">เป็นพันธมิตรในเครือ</a></p>
+        </div>
+    </div>
+</body>
+</html>
