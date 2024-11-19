@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .login-container {
+            width: 90%;
+            max-width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: -80px;
+        }
+
+        .login-container h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 90%;
+            padding: 7px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .login-container .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9em;
+            margin: 10px 0;
+        }
+
+        .login-container .login-button {
+            width: 90%;
+            padding: 6px;
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .login-container .login-button:hover {
+            background-color: #cc3535;
+        }
+
+        .login-container .signup-link {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .login-container .signup-link a {
+            color: #e53e3e;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .login-container .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .menu a i {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <a href="shopping_mall.html">
+            <i class="las la-home fs-20 opacity-60"></i> Mall
+        </a>
+        <a href="dashboard.html">
+            <i class="las la-tachometer-alt fs-20 opacity-60"></i> ควบคุม
+        </a>
+        <a href="shop.html">
+            <i class="las la-shopping-bag la-2x text-white"></i> สินค้า
+        </a>
+        <a href="#">
+            <i class="las la-bell fs-20 opacity-60"></i> การแจ้งเตือน
+        </a>
+        <a href="menu.html">
+            <i class="las la-user"></i> ฉัน
+        </a>
+    </div>
+
+    <div class="login-container">
+        <h2>ลงชื่อเข้าใช้บัญชีของคุณ</h2>
+        
+        <input type="text" id="account" placeholder="เบอร์โทรศัพท์" required>
+        <input type="password" id="password" placeholder="รหัสผ่าน" required>
+
+        <div class="checkbox-container">
+            <label><input type="checkbox"> จดจำฉัน</label>
+            <a href="#" style="color: #666; text-decoration: none;">ลืมรหัสผ่าน?</a>
+        </div>
+
+        <button class="login-button" onclick="login()">เข้าสู่ระบบ</button>
+
+        <div class="signup-link">
+            ไม่มีบัญชี? <a href="apply.html">สมัครตอนนี้</a>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const account = document.getElementById('account').value;
+            const password = document.getElementById('password').value;
+
+            // ดึงข้อมูลบัญชีและรหัสผ่านจาก Local Storage
+            const savedAccount = localStorage.getItem("account");
+            const savedPassword = localStorage.getItem("password");
+
+            // ตรวจสอบว่าข้อมูลตรงกันหรือไม่
+            if (account === savedAccount && password === savedPassword) {
+                // ถ้าตรงกัน ให้เปลี่ยนเส้นทางไปที่ home.html
+                window.location.href = "html/shopping_mall.html";
+            } else {
+                alert("บัญชีเงินฝากหรือรหัสผ่านไม่ถูกต้อง");
+            }
+        }
+    </script>
+
+</body>
+</html>
